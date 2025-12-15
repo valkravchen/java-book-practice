@@ -8,5 +8,7 @@ public class RunnableDemo {
                 System.out.println("внутри Runnable в анонимном внутреннем классе");
             }
         }).start();
+
+        new Thread(() -> System.out.println("внутри конструктора Thread с использованием лямбды")).start();
     }
 }
