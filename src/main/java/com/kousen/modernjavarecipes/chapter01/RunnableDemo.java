@@ -10,5 +10,8 @@ public class RunnableDemo {
         }).start();
 
         new Thread(() -> System.out.println("внутри конструктора Thread с использованием лямбды")).start();
+
+        Runnable runnable = () -> System.out.println("лямбда-выражение, реализующее метод run");
+        new Thread(runnable).start();
     }
 }
