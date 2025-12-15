@@ -19,12 +19,7 @@ public class RunnableDemo {
         new Thread(runnable).start();
 
         File directory = new File("./src/main/java");
-        String[] names = directory.list(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".java");
-            }
-        });
+        String[] names = directory.list((dir, name) -> name.endsWith(".java"));
         System.out.println(Arrays.asList(names));
     }
 }
