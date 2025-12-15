@@ -1,5 +1,9 @@
 package com.kousen.modernjavarecipes.chapter01;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.Arrays;
+
 public class RunnableDemo {
     static void main() {
         new Thread(new Runnable() {
@@ -13,5 +17,14 @@ public class RunnableDemo {
 
         Runnable runnable = () -> System.out.println("лямбда-выражение, реализующее метод run");
         new Thread(runnable).start();
+
+        File directory = new File("./src/main/java");
+        String[] names = directory.list(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".java");
+            }
+        });
+        System.out.println(Arrays.asList(names));
     }
 }
