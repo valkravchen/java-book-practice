@@ -43,6 +43,12 @@ public class MethodReferences {
                 .toList();
     }
 
+    public static void mapWithMethodReference() {
+        Stream.of("this", "is", "a", "stream", "of", "strings")
+                .map(String::length)
+                .forEach(System.out::println);
+    }
+
     static void main() {
         printlnWithLambda();
         printlnWithMethodReference();
@@ -50,5 +56,6 @@ public class MethodReferences {
         staticMethodReference();
         sortWithLambda();
         sortWithMethodReference();
+        mapWithMethodReference();
     }
 }
