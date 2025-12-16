@@ -16,6 +16,10 @@ public class Person {
         this.name = person.name;
     }
 
+    public Person(String... names) {
+        this.name = String.join(" ", names);
+    }
+
     public String getName() {
         return name;
     }

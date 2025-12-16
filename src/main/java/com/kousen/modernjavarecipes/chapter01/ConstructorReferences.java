@@ -71,6 +71,16 @@ public class ConstructorReferences {
         System.out.println(before.equals(after));
     }
 
+    public static void varargsConstructor() {
+        List<String> names = Arrays.asList("Grace Hopper", "Barbara Liskov", "Ada Lovelace",
+                "Karen Spärck Jones");
+
+        names.stream()
+                .map(name -> name.split(" "))
+                .map(Person::new)
+                .toList();
+    }
+
     public static void main() {
         convertPersonsToNamesWithLambda();
         convertPersonsToNamesWithMethodReference();
