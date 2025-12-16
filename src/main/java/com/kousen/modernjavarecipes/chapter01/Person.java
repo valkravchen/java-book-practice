@@ -1,6 +1,8 @@
 package com.kousen.modernjavarecipes.chapter01;
 
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Person {
     private String name;
@@ -17,7 +19,9 @@ public class Person {
     }
 
     public Person(String... names) {
-        this.name = String.join(" ", names);
+        System.out.println("Varargs ctor, names=" + Arrays.asList(names));
+        this.name = Arrays.stream(names)
+                .collect(Collectors.joining(" "));
     }
 
     public String getName() {

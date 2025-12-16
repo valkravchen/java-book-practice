@@ -87,6 +87,6 @@ public class ConstructorReferences {
         convertNamesWithLambda();
         convertNamesWithConstructorReference();
         copyConstructorProblem();
-        copyConstructorSolution();
+        varargsConstructor();
     }
 }
