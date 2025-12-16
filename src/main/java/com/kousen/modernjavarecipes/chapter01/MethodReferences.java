@@ -36,11 +36,19 @@ public class MethodReferences {
                 .toList();
     }
 
+    public static void sortWithMethodReference() {
+        List<String> strings = Arrays.asList("this", "is", "a", "list", "of", "strings");
+        List<String> sorted = strings.stream()
+                .sorted(String::compareTo)
+                .toList();
+    }
+
     static void main() {
         printlnWithLambda();
         printlnWithMethodReference();
         methodReferenceAsVariable();
         staticMethodReference();
         sortWithLambda();
+        sortWithMethodReference();
     }
 }
