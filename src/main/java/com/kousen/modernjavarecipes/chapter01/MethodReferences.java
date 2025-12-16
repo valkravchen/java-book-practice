@@ -1,5 +1,7 @@
 package com.kousen.modernjavarecipes.chapter01;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -27,10 +29,18 @@ public class MethodReferences {
                 .forEach(System.out::println);
     }
 
+    public static void sortWithLambda() {
+        List<String> strings = Arrays.asList("this", "is", "a", "list", "of", "strings");
+        List<String> sorted = strings.stream()
+                .sorted((s1, s2) -> s1.compareTo(s2))
+                .toList();
+    }
+
     static void main() {
         printlnWithLambda();
         printlnWithMethodReference();
         methodReferenceAsVariable();
         staticMethodReference();
+        sortWithLambda();
     }
 }
