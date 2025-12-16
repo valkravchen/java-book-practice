@@ -81,6 +81,15 @@ public class ConstructorReferences {
                 .toList();
     }
 
+    public static void arrayConstructor() {
+        List<String> names = Arrays.asList("Grace Hopper", "Barbara Liskov", "Ada Lovelace",
+                "Karen Spärck Jones");
+
+        Person[] people = names.stream()
+                .map(Person::new)
+                .toArray(Person[]::new);
+    }
+
     public static void main() {
         convertPersonsToNamesWithLambda();
         convertPersonsToNamesWithMethodReference();
@@ -88,5 +97,6 @@ public class ConstructorReferences {
         convertNamesWithConstructorReference();
         copyConstructorProblem();
         varargsConstructor();
+        arrayConstructor();
     }
 }
