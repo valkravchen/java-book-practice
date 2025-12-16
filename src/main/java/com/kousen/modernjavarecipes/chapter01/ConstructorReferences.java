@@ -54,11 +54,29 @@ public class ConstructorReferences {
         System.out.println("Grace Murray Hopper".equals(after.getName()));
     }
 
+    public static void copyConstructorSolution() {
+        Person before = new Person("Grace Hopper");
+        List<Person> people = Stream.of(before).toList();
+        Person after = people.get(0);
+        System.out.println(before == after);
+        before.setName("Grace Murray Hopper");
+        System.out.println("Grace Murray Hopper".equals(after.getName()));
+        people = Stream.of(before)
+                .map(Person::new)
+                .toList();
+        after = people.get(0);
+        System.out.println(before != after);
+        System.out.println(before.equals(after));
+        before.setName("Rear Admiral Dr. Grace Murray Hopper");
+        System.out.println(before.equals(after));
+    }
+
     public static void main() {
         convertPersonsToNamesWithLambda();
         convertPersonsToNamesWithMethodReference();
         convertNamesWithLambda();
         convertNamesWithConstructorReference();
         copyConstructorProblem();
+        copyConstructorSolution();
     }
 }
