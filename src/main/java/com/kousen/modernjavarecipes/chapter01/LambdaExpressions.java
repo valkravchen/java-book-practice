@@ -37,7 +37,7 @@ public class LambdaExpressions {
 
     public static void filenameFilterWithLambda() {
         File directory = new File("./src/main/java");
-        String[] names = directory.list((dir, name)-> name.endsWith(".java"));
+        String[] names = directory.list((dir, name) -> name.endsWith(".java"));
         System.out.println(Arrays.asList(names));
     }
 
