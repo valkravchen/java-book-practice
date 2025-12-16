@@ -35,8 +35,19 @@ public class ConstructorReferences {
                 .toList();
     }
 
-    static void main() {
+    public static void convertNamesWithConstructorReference() {
+        List<String> names = Arrays.asList("Grace Hopper", "Barbara Liskov", "Ada Lovelace",
+                "Karen Spärck Jones");
+
+        List<Person> people = names.stream()
+                .map(Person::new)
+                .toList();
+    }
+
+    public static void main() {
         convertPersonsToNamesWithLambda();
         convertPersonsToNamesWithMethodReference();
+        convertNamesWithLambda();
+        convertNamesWithConstructorReference();
     }
 }
