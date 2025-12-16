@@ -2,6 +2,7 @@ package com.kousen.modernjavarecipes.chapter01;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ConstructorReferences {
     public static void convertPersonsToNamesWithLambda() {
@@ -44,10 +45,20 @@ public class ConstructorReferences {
                 .toList();
     }
 
+    public static void copyConstructorProblem() {
+        Person before = new Person("Grace Hopper");
+        List<Person> people = Stream.of(before).toList();
+        Person after = people.get(0);
+        System.out.println(before == after);
+        before.setName("Grace Murray Hopper");
+        System.out.println("Grace Murray Hopper".equals(after.getName()));
+    }
+
     public static void main() {
         convertPersonsToNamesWithLambda();
         convertPersonsToNamesWithMethodReference();
         convertNamesWithLambda();
         convertNamesWithConstructorReference();
+        copyConstructorProblem();
     }
 }
