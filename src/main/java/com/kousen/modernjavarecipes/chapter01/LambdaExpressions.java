@@ -11,7 +11,12 @@ public class LambdaExpressions {
         }).start();
     }
 
+    public static void runnableWithLambda() {
+        new Thread(()-> System.out.println("внутри конструктора Thread с использованием лямбды")).start();
+    }
+
     static void main() {
         runnableWithAnonymousClass();
+        runnableWithLambda();
     }
 }
