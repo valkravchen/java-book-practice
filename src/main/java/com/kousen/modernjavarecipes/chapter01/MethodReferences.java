@@ -10,20 +10,27 @@ public class MethodReferences {
 
     }
 
-    public static void printlnWithReference() {
+    public static void printlnWithMethodReference() {
         Stream.of(3, 1, 4, 1, 5, 9)
                 .forEach(System.out::println);
     }
 
-    public static void referenceAsVariable() {
+    public static void methodReferenceAsVariable() {
         Consumer<Integer> printer = System.out::println;
         Stream.of(3, 1, 4, 1, 5, 9)
                 .forEach(printer);
     }
 
+    public static void staticMethodReference() {
+        Stream.generate(Math::random)
+                .limit(10)
+                .forEach(System.out::println);
+    }
+
     static void main() {
         printlnWithLambda();
-        printlnWithReference();
-        referenceAsVariable();
+        printlnWithMethodReference();
+        methodReferenceAsVariable();
+        staticMethodReference();
     }
 }
