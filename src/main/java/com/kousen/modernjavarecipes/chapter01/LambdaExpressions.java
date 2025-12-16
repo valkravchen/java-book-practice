@@ -47,6 +47,14 @@ public class LambdaExpressions {
         System.out.println(Arrays.asList(names));
     }
 
+    public static void filenameFilterWithBlockSyntax() {
+        File directory = new File("./src/main/java");
+        String[] names = directory.list((File dir, String name) -> {
+            return name.endsWith(".java");
+        });
+        System.out.println(Arrays.asList(names));
+    }
+
     static void main() {
         runnableWithAnonymousClass();
         runnableWithLambda();
@@ -54,5 +62,6 @@ public class LambdaExpressions {
         filenameFilterWithAnonymousClass();
         filenameFilterWithLambda();
         filenameFilterWithExplicitTypes();
+        filenameFilterWithBlockSyntax();
     }
 }
